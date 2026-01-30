@@ -1,58 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Zigzag Background Pan Fast</title>
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .container {
-    width: 100%;
-    height: 100%;
-    background:
-      linear-gradient(135deg, #4f46e5 25%, transparent 25%) -50px 0,
-      linear-gradient(225deg, #4f46e5 25%, transparent 25%) -50px 0,
-      linear-gradient(315deg, #4f46e5 25%, transparent 25%),
-      linear-gradient(45deg, #4f46e5 25%, transparent 25%),
-      linear-gradient(to bottom, #3b82f6 0%, #2563eb 100%);
-    background-size:
-      100px 100px,
-      100px 100px,
-      100px 100px,
-      100px 100px,
-      100% 100%;
-    position: relative;
-    animation: panRight 10s linear infinite; /* much faster */
-  }
-
-  @keyframes panRight {
-    0% {
-      background-position:
-        -50px 0,
-        -50px 0,
-        0 0,
-        0 0,
-        0 0;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Koonung Coding Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#0f62fe; /* blue */
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --card:#f8fafc;
+      --radius:16px;
+      --maxw:1100px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-    100% {
-      background-position:
-        250px 0,
-        250px 0,
-        300px 0,
-        300px 0,
-        0 0;
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%);color:#0b0f13}
+    .wrap{max-width:var(--maxw);margin:48px auto;padding:32px}
+
+    /* Header / hero */
+    header{display:flex;align-items:center;gap:32px}
+    .logo{width:110px;height:110px;border-radius:18px;background:linear-gradient(135deg,var(--accent),#7cc3ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px;box-shadow:0 8px 24px rgba(15,98,254,0.12)}
+    .title-group{flex:1}
+    h1{margin:0;font-size:40px;letter-spacing:-0.6px}
+    p.lead{margin:8px 0 0;color:var(--muted);font-size:16px}
+
+    /* Main grid */
+    .layout{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px}
+
+    /* Left card area - main content */
+    .main-card{background:var(--card);border-radius:var(--radius);padding:26px;box-shadow:0 6px 20px rgba(9,10,11,0.04)}
+    .section{margin-bottom:18px}
+    .section h2{margin:0 0 8px;font-size:18px}
+    .grid-features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .feature{background:white;padding:14px;border-radius:12px;text-align:center;box-shadow:0 4px 12px rgba(11,15,20,0.04)}
+    .feature .circle{width:56px;height:56px;border-radius:50%;display:inline-grid;place-items:center;margin-bottom:8px;background:linear-gradient(180deg,#e9f2ff,#ffffff);font-weight:700}
+    .feature small{display:block;color:var(--muted);font-size:13px}
+
+    /* Right column - card */
+    .side-card{background:white;border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(11,15,20,0.06)}
+    .avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#ffe68a,#ffb86b);display:inline-block}
+    .cta{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;border:0;cursor:pointer}
+    .btn-primary{background:var(--accent);color:white}
+    .btn-ghost{background:transparent;border:1px solid #e6eefc;color:var(--accent)}
+
+    /* Footer */
+    footer{margin-top:28px;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .layout{grid-template-columns:1fr;}
+      header{flex-direction:row;align-items:center}
+      h1{font-size:28px}
+      .logo{width:80px;height:80px;font-size:14px}
+      .wrap{padding:18px;margin:16px}
+      .grid-features{grid-template-columns:repeat(2,1fr)}
     }
-  }
-</style>
+  </style>
 </head>
 <body>
-  <div class="container"></div>
+  <div class="wrap">
+    <header>
+      <div class="logo"><img src="https://avatars.githubusercontent.com/u/229656022?s=200&amp;v=4"></div>
+      <div class="title-group">
+        <h1>KOONUNG CODING CLUB</h1>
+        <p class="lead">The Koonung 	   Secondary Coding Club</p>
+      </div>
+      <div style="min-width:140px;text-align:right">
+        <a class="btn btn-primary" href="https://github.com/Koonung-Hack-Club">Join our Github!</a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <main class="main-card">
+        <div class="section">
+          <h2>What we do</h2>
+          <p style="margin:6px 0 12px;color:var(--muted);">We are the Koonung Secondary College Coding and Robotics Club.</p>
+          <div class="grid-features">
+            <div class="feature">
+              <div class="circle">1</div>
+              <strong>Coding</strong>
+              <small>Hands-on coding each session</small>
+            </div>
+            <div class="feature">
+              <div class="circle">2</div>
+              <strong>No Reqs</strong>
+              <small>No experience necessary to join! Just 		     rock up!</small>
+            </div>
+            <div class="feature">
+              <div class="circle">3</div>
+              <strong>Prizes!</strong>
+              <small>Share what you build and you may win! </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>What we're up to</h2>
+          <p style="margin:6px 0;color:var(--muted);">Every Monday at Room 25</p>
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <div style="flex:1;background:white;padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(11,15,20,0.03)">
+              <strong>Build a website, get boba! 🧋</strong>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">Make a website, get boba!</div>
+            </div>
+            <div style="width:120px;display:flex;align-items:center;justify-content:center">
+              <a class="btn btn-ghost" href="https://boba.kschack.org">Learn more</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="section">
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <div style="flex:1;background:white;padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(11,15,20,0.03)">
+              <strong>Random stuff goes here!</strong>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">Random Stuff Goes here</div>
+            </div>
+            <div style="width:120px;display:flex;align-items:center;justify-content:center">
+              <a class="btn btn-ghost" href="https://boba.kschack.org">Learn more</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="section">
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <div style="flex:1;background:white;padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(11,15,20,0.03)">
+              <strong>Random stuff goes here!</strong>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">Random Stuff Goes here</div>
+            </div>
+            <div style="width:120px;display:flex;align-items:center;justify-content:center">
+              <a class="btn btn-ghost" href="https://boba.kschack.org">Learn more</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="section">
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <div style="flex:1;background:white;padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(11,15,20,0.03)">
+              <strong>Random stuff goes here!</strong>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">Random Stuff Goes here</div>
+            </div>
+            <div style="width:120px;display:flex;align-items:center;justify-content:center">
+              <a class="btn btn-ghost" href="https://boba.kschack.org">Learn more</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2></h2>
+          <p style="margin:6px 0;color:var(--muted);">Place holder bricks for portfolio</p>
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <div style="flex:1;height:96px;border-radius:10px;background:linear-gradient(135deg,#f0f9ff,#e6f3ff);display:flex;align-items:center;justify-content:center">Image</div>
+            <div style="flex:1;height:96px;border-radius:10px;background:linear-gradient(135deg,#fff8f0,#fff0e6);display:flex;align-items:center;justify-content:center">Image</div>
+            <div style="flex:1;height:96px;border-radius:10px;background:linear-gradient(135deg,#f6fff0,#efffe6);display:flex;align-items:center;justify-content:center">Image</div>
+          </div>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>Koonung Hack Club is fiscally sponsored by The Hack Foundation (d.b.a. Hack Club), a 501(c)(3) nonprofit (EIN: 81-2908499)</div>
+        <div style="color:var(--muted)">Made with ❤️ by Lachie and Ryan</div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
